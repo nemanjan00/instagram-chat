@@ -47,6 +47,28 @@ module.exports = function(app) {
 		}
 	});
 
+	router.get("/threads", function(req, res){
+		var session = app.get("sessions")[req.session.id];
+
+		if(session){
+			var inbox = require("../../instagram/inbox.js")(session.session);
+			inbox.getThreads().then((threads) => {
+				var threads = threads.map((thread) => {
+					return thread.getParams();
+				});
+
+				res.send({
+					status: "ok",
+					threads: threads
+				});
+			});
+		} else {
+			res.send({
+				status: "error"
+			})
+		}
+	});
+
 	router.get("/logout", function(req, res){
 		var sessions = app.get("sessions");
 		sessions[req.session.id] = undefined;

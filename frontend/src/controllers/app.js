@@ -4,10 +4,9 @@ module.exports = function(app) {
 
 		user.checkStatus().then(() => {
 			if(!user.isAuthenticated()){
-				$state.go("login");
+				$state.go("loader");
 			}
 		});
 	});
 }
-
 

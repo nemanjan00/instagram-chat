@@ -20,3 +20,11 @@ body {
 	cursor: pointer;
 }
 
+.navbar-header {
+	width: 100%;
+}
+
+.navbar-header > .pull-right {
+	margin-right: 10px;
+}
+

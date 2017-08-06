@@ -1,5 +1,6 @@
 module.exports = function(app) {
 	app.controller("LoaderController", function(user, $state) {
+		$(".splash").show();
 		user.checkStatus().then(() => {
 			if(user.isAuthenticated()){
 				$state.go("app.inbox");

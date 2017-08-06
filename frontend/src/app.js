@@ -24,7 +24,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		})
 		.state('app.inbox', {
 			url: "/inbox",
-			templateUrl: '/templates/app.html',
+			controller: "InboxController",
+			templateUrl: '/templates/inbox.html',
 		})
 		.state('app.thread', {
 			url: "/thread",
