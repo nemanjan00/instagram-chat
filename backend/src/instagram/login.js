@@ -12,6 +12,8 @@ module.exports = function(username, password){
 
 		Client.Session.create(device, storage, username, password).then(function(session) {
 			resolve(session);
+		}).catch((error) => {
+			reject(error);
 		})
 	});
 }
