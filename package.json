@@ -12,6 +12,9 @@
     "test": "karma start",
     "build": "rm -rf public ; mkdir public ; cp -r ./public-template/* ./public/ ; webpack --config frontend/config/webpack.prod.js --progress --profile --bail"
   },
+  "engines": {
+    "node": "8.2.1"
+  }
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
