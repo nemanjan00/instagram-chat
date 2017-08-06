@@ -1,35 +1,38 @@
-// Utility dependencies
+module.exports = new Promise((resolve, reject) => {
+	// Utility dependencies
 
-var logSymbols = require('log-symbols');
-var getPort = require('./backend/src/getPort');
+	var logSymbols = require('log-symbols');
+	var getPort = require('./backend/src/getPort');
 
-// Express & Utility middleware
+	// Express & Utility middleware
 
-var express = require('express');
-var session = require('express-session')
-var bodyParser = require('body-parser')
+	var express = require('express');
+	var session = require('express-session')
+	var bodyParser = require('body-parser')
 
-var app = express();
+	var app = express();
 
-app.use(bodyParser.urlencoded({
-	extended: true
-}));
+	app.use(bodyParser.urlencoded({
+		extended: true
+	}));
 
-app.use(express.static('frontend/public'));
-app.use(session({
-	secret: 'keyboard cat',
-	resave: true
-}));
+	app.use(express.static('frontend/public'));
+	app.use(session({
+		secret: 'keyboard cat',
+		resave: true
+	}));
 
-// Express initialization (app specific stuff)
+	// Express initialization (app specific stuff)
 
-getPort().then((port) => {
-	app.set("port", process.env.port || port);
+	getPort().then((port) => {
+		app.set("port", process.env.port || port);
 
-	app.use('/', require('./backend/src/routes')(app));
+		app.use('/', require('./backend/src/routes')(app));
 
-	app.listen(app.get("port"), function () {
-		console.log(logSymbols.success, 'instagram chat is listening on port '+app.get('port')+'.');
+		app.listen(app.get("port"), function () {
+			resolve();
+			console.log(logSymbols.success, 'instagram chat is listening on port '+app.get('port')+'.');
+		});
 	});
 });
 
