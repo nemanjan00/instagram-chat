@@ -28,8 +28,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			templateUrl: '/templates/inbox.html',
 		})
 		.state('app.thread', {
-			url: "/thread",
-			templateUrl: '/templates/app.html',
+			url: "/thread/:id",
+			controller: "ThreadController",
+			templateUrl: '/templates/thread.html',
 		});
 });
 

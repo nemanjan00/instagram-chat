@@ -1,5 +1,5 @@
 module.exports = function(app) {
-	app.controller("InboxController", function(user, $http, $scope) {
+	app.controller("InboxController", function(user, $http, $scope, $state, $rootScope) {
 		$scope.threads = [];
 
 		setTimeout(() => {
@@ -8,12 +8,32 @@ module.exports = function(app) {
 
 		$scope.cursor = null;
 
+		$scope.goToThread = function(thread){
+			$state.go("app.thread", {id: thread.id});
+		}
+
+		function sync(threads){
+			if($rootScope.users == undefined){
+				$rootScope.users = {};
+			}
+
+			threads.forEach((thread) => {
+				thread.accounts.forEach((account) => {
+					$rootScope.users[account.id] = account;
+				});
+			});
+
+			console.log($rootScope.users);
+		}
+
 		$scope.loadMore = function(){
 			if($scope.loaded && !$scope.end){
 				$scope.loaded = false;
 
 				$http.get("/instagram/threads/"+$scope.cursor).then(function(data){
 					$scope.threads = $scope.threads.concat(data.data.threads);
+
+					sync($scope.threads)
 
 					if($scope.cursor == data.data.cursor){
 						$scope.end = true;
@@ -59,6 +79,8 @@ module.exports = function(app) {
 					$scope.threads = data.data.threads;
 
 					$scope.cursor = data.data.cursor;
+
+					sync($scope.threads)
 					console.log($scope.threads);
 				})
 			}

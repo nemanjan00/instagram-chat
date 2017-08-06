@@ -37,9 +37,25 @@ module.exports = function(app) {
 		var session = app.get("sessions")[req.session.id];
 
 		if(session){
-			res.send({
-				status: "ok"
-			})
+			if(session.account == undefined){
+				session.session.getAccount().then(function(account) {
+					session.account = account;
+
+					sessions[req.session.id] = session;
+					app.set("sessions", sessions);
+
+
+					res.send({
+						status: "ok",
+						user: account.params
+					})
+				})
+			} else {
+				res.send({
+					status: "ok",
+					user: session.account.params
+				})
+			}
 		} else {
 			res.send({
 				status: "error"
@@ -73,6 +89,33 @@ module.exports = function(app) {
 
 	router.get("/threads", threads);
 	router.get("/threads/:cursor", threads);
+
+	function messagess(req, res){
+		var session = app.get("sessions")[req.session.id];
+		var cursor = req.params.cursor || null;
+
+		if(session){
+			var inbox = require("../../instagram/inbox.js")(session.session);
+			inbox.getMessagess(req.params.thread, cursor).then((data) => {
+				var messagess = data.messagess.map((message) => {
+					return message.getParams();
+				});
+
+				res.send({
+					status: "ok",
+					messagess: messagess,
+					cursor: data.cursor
+				});
+			});
+		} else {
+			res.send({
+				status: "error"
+			})
+		}
+	}
+
+	router.get("/messagess/:thread", messagess);
+	router.get("/messagess/:thread/:cursor", messagess);
 
 	router.get("/logout", function(req, res){
 		var sessions = app.get("sessions");

@@ -18,6 +18,22 @@ module.exports = function(session){
 					});
 				});
 			})
+		},
+		getMessagess: function(thread, cursor){
+			return new Promise((resolve, reject) => {
+				var feed = new Client.Feed.ThreadItems(inbox.session, thread);
+
+				if(cursor){
+					feed.setCursor(cursor);
+				}
+
+				feed.get().then((messagess) => {
+					resolve({
+						messagess: messagess,
+						cursor: feed.getCursor()
+					});
+				});
+			})
 		}
 	};
 

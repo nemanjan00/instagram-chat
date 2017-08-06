@@ -26,7 +26,7 @@ module.exports = function(app) {
 		};
 	});
 
-	app.factory("user", function($rootScope, $interval, $http){
+	app.factory("user", function($rootScope, $interval, $http, $rootScope){
 		var user = {
 			status: undefined,
 			user: undefined,
@@ -41,6 +41,12 @@ module.exports = function(app) {
 						if(data.data.status !== user.status || JSON.stringify(data.data.user) !== JSON.stringify(user.user)){
 							user.status = data.data.status;
 							user.user = data.data.user;
+
+							if($rootScope.users == undefined){
+								$rootScope.users = {};
+							}
+
+							$rootScope.users[user.id] = user;
 
 							$rootScope.$broadcast("userChanged");
 

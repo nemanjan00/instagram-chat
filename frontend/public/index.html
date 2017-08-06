@@ -239,10 +239,6 @@
 <link rel="preload" href="/app.css" as="script">
 <link rel="preload" href="/vendor.js" as="script">
 <link rel="preload" href="/vendor.css" as="script">
-<link rel="preload" href="/app.js" as="script">
-<link rel="preload" href="/app.css" as="script">
-<link rel="preload" href="/vendor.js" as="script">
-<link rel="preload" href="/vendor.css" as="script">
 <link href="/vendor.css" rel="stylesheet"><link href="/app.css" rel="stylesheet"></head>
 	<body>
 		<div class="splash">
@@ -292,7 +288,7 @@
 		<script type="text/ng-template" id="/templates/inbox.html">
 			<div class="container">
 				<div class="list-group" infinite-scroll='loadMore()'>
-					<div class="list-group-item" ng-click="" ng-repeat="thread in threads">
+					<div class="list-group-item" ng-click="goToThread(thread)" ng-repeat="thread in threads">
 						<div class="media">
 							<div class="media-left">
 								<a href="#">
@@ -307,6 +303,26 @@
 								<span ng-show="thread.items[0].type == 'media'">
 									<img ng-repeat="image in thread.items[0].media" ng-src="{{image.url}}" style="max-height: 150px;">
 								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.container -->
+		</script>
+
+		<script type="text/ng-template" id="/templates/thread.html">
+			<div class="container">
+				<div class="list-group">
+					<div class="list-group-item" ng-repeat="message in thread">
+						<div class="media">
+							<div class="media-left">
+								<a href="#">
+								<img class="media-object" ng-src="{{getPhoto(message.accountId)}}" alt="...">
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">{{getName(message.accountId)}}</h4>
+								{{message.text}}
 							</div>
 						</div>
 					</div>
