@@ -13,7 +13,9 @@ var app = express();
 
 app.use(bodyParser.urlencoded({
 	extended: true
-})); 
+}));
+
+app.use(express.static('frontend/public'));
 
 // Express initialization (app specific stuff)
 

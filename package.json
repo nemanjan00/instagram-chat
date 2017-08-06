@@ -6,6 +6,12 @@
   "repository": "https://github.com/nemanjan00/instagram-chat",
   "author": "nemanjan00 <nemanjan00@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/.bin/spa-server-express",
+    "serve": "webpack-dev-server --inline --progress --port 8080 --config frontend/config/webpack.dev.js --content-base public",
+    "test": "karma start",
+    "build": "rm -rf public ; mkdir public ; cp -r ./public-template/* ./public/ ; webpack --config frontend/config/webpack.prod.js --progress --profile --bail"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
@@ -15,7 +21,21 @@
     "portastic": "^1.0.1"
   },
   "devDependencies": {
+    "angular": "^1.6.5",
+    "angular-ui-router": "^1.0.3",
     "bootstrap": "^3.3.7",
-    "fontawesome": "^4.7.2"
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "font-awesome": "^4.7.0",
+    "html-webpack-plugin": "^2.30.1",
+    "jquery": "^3.2.1",
+    "preload-webpack-plugin": "^1.2.3",
+    "require-reload": "^0.2.2",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.4.1",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-livereload-plugin": "^0.11.0",
+    "webpack-merge": "^4.1.0"
   }
 }
