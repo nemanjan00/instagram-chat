@@ -13,5 +13,9 @@
     "instagram-private-api": "^0.6.0",
     "log-symbols": "^2.0.0",
     "portastic": "^1.0.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "fontawesome": "^4.7.2"
   }
 }
