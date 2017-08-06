@@ -16,6 +16,7 @@ let mainWindow
 function createWindow () {
 	// Create the browser window.
 	mainWindow = new BrowserWindow({width: 800, height: 600})
+	mainWindow.setMenu(null);
 
 	// Open the DevTools.
 	// mainWindow.webContents.openDevTools()
