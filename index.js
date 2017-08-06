@@ -3,16 +3,21 @@
 var logSymbols = require('log-symbols');
 var getPort = require('./backend/src/getPort');
 
-// Express
+// Express & Utility middleware
 
-var session = require('express-session')
 var express = require('express');
+var session = require('express-session')
+var bodyParser = require('body-parser')
 
-// Express initialization
+var app = express();
+
+app.use(bodyParser.urlencoded({
+	extended: true
+})); 
+
+// Express initialization (app specific stuff)
 
 getPort().then((port) => {
-	var app = express();
-
 	app.set("port", process.env.port || port);
 
 	app.use('/', require('./backend/src/routes')(app));
