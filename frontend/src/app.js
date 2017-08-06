@@ -18,6 +18,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		})
 		.state('app', {
 			url: "/app",
+			controller: "AppController",
 			abstract: true,
 			templateUrl: "/templates/app.html"
 		})
