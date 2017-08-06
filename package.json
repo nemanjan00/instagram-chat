@@ -1,6 +1,6 @@
 {
   "name": "instagram-chat",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Instagram Chat Application",
   "main": "electron.js",
   "repository": "https://github.com/nemanjan00/instagram-chat",
