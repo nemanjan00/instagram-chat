@@ -16,6 +16,10 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(express.static('frontend/public'));
+app.use(session({
+	secret: 'keyboard cat',
+	resave: true
+}));
 
 // Express initialization (app specific stuff)
 

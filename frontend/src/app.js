@@ -4,27 +4,29 @@ require("./css/theme.css");
 var app = angular.module('top.nemanja.instagram-chat', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise("/login");
+	$urlRouterProvider.otherwise("/loader");
 
 	$stateProvider
+		.state('loader', {
+			url: "/loader",
+			controller: "LoaderController"
+		})
 		.state('login', {
 			url: "/login",
 			templateUrl: "/templates/login.html",
 			controller: "LoginController"
 		})
 		.state('app', {
-			url: "/register",
-			controller: "RegisterController",
-			templateUrl: "/templates/register.html"
-		})
-		.state('inbox', {
-			abstract: true,
 			url: "/app",
+			abstract: true,
+			templateUrl: "/templates/app.html"
+		})
+		.state('app.inbox', {
+			url: "/inbox",
 			templateUrl: '/templates/app.html',
 		})
-		.state('thread', {
-			abstract: true,
-			url: "/appa",
+		.state('app.thread', {
+			url: "/thread",
 			templateUrl: '/templates/app.html',
 		});
 });

@@ -24,7 +24,7 @@ module.exports = function(app) {
 			},
 			checkStatus: function(){
 				var promise = new Promise(function(resolve, reject){
-					$http.get("/auth/status").then(function(data){
+					$http.get("/instagram/status").then(function(data){
 						if(data.data.status !== user.status || JSON.stringify(data.data.user) !== JSON.stringify(user.user)){
 							user.status = data.data.status;
 							user.user = data.data.user;
@@ -51,14 +51,10 @@ module.exports = function(app) {
 				var promise = new Promise(function(resolve, reject){
 					$http.post("/instagram/login", $.param({username: username, password: password}), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then(function(data){
 						console.log(data);
+						console.log(data.data.status == "ok");
 						resolve(data.data.status == "ok");
-					});
-				});
-
-				promise.then(function(result){
-					if(result){
 						user.checkStatus();
-					}
+					});
 				});
 
 				return promise;
@@ -84,11 +80,11 @@ module.exports = function(app) {
 		return user;
 	})
 
-	app.controller("LoginController", function($scope, user) {
+	app.controller("LoginController", function($scope, user, $state) {
 		$scope.login = function(){
 			user.login($scope.username, $scope.password).then(function(result){
 				if(result){
-					$state.go("app.home");
+					$state.go("app.inbox");
 				}
 				else
 				{

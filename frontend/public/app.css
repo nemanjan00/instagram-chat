@@ -33,7 +33,13 @@
 	border-top-right-radius: 0;
 }
 body {
+	padding-top: 70px;
+
 	background-color: #8a3ab9;
 	color: #fff;
+}
+
+.navbar-brand {
+	color: #fff !important;
 }
 
