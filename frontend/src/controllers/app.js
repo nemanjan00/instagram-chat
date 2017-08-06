@@ -1,8 +1,13 @@
 module.exports = function(app) {
-	app.controller("LoaderController", function(user, $state) {
-			if(user.status != "ok"){
+	app.controller("AppController", function(user, $state) {
+		$(".splash").hide();
+
+		user.checkStatus().then(() => {
+			if(!user.isAuthenticated()){
 				$state.go("login");
 			}
+		});
 	});
 }
+
 

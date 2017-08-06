@@ -1,3 +1,7 @@
+var fs = require('fs');
+var path = require('path');
+var OS = require('os');
+
 module.exports = function(app) {
 	var router = require('express').Router();
 
@@ -41,6 +45,22 @@ module.exports = function(app) {
 				status: "error"
 			})
 		}
+	});
+
+	router.get("/logout", function(req, res){
+		var sessions = app.get("sessions");
+		sessions[req.session.id] = undefined;
+		app.set("sessions", sessions);
+
+		var cookies = path.join(OS.tmpdir(), req.session.id+'.json');
+
+		if (fs.existsSync(cookies)) {
+			fs.unlinkSync(cookies);
+		}
+
+		res.send({
+			status: "ok"
+		})
 	});
 
 	return router;

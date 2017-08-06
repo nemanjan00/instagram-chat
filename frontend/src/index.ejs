@@ -3,12 +3,48 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title>Instagram chat</title>
+
+		<style>
+			.splash {
+				margin-top: -70px;
+				position: fixed;
+				z-index: 100000000;
+				background-color: #fff;
+				width: 100vw;
+				height: 100vh;
+			}
+
+			.loader {
+				border: 16px solid #f3f3f3; /* Light grey */
+				border-top: 16px solid #3498db; /* Blue */
+				border-radius: 50%;
+				width: 30vh;
+				height: 30vh;
+				animation: spin 2s linear infinite;
+
+				position: absolute;
+				top: 50%;
+				margin-top: -15vh;
+
+				left: 50%;
+				margin-left: -15vh;
+			}
+
+			@keyframes spin {
+				0% { transform: rotate(0deg); }
+				100% { transform: rotate(360deg); }
+			}
+		</style>
 	</head>
 	<body>
+		<div class="splash">
+			<div class="loader"></div>
+		</div>
+
 		<ui-view></ui-view>
 
 		<script type="text/ng-template" id="/templates/login.html">
-			<div class="container">
+			<div class="container-flud">
 				<div class="form-signin" my-enter="login()">
 					<h2 class="form-signin-heading"><i class="fa fa-instagram" aria-hidden="true"></i> Please sign in</h2>
 
@@ -34,6 +70,11 @@
 				<div class="container">
 					<div class="navbar-header">
 						<a class="navbar-brand" href="#"><i class="fa fa-instagram"></i> Instagram Chat</a>
+					</div>
+					<div id="navbar">
+						<ul class="nav navbar-nav pull-right">
+							<li><a logout><i class="fa fa-sign-out"></i> Log out</a></li>
+						</ul>
 					</div>
 				</div>
 			</nav>

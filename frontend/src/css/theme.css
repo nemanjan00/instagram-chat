@@ -15,7 +15,8 @@ body {
 
 [ng-click],
 [data-ng-click],
-[x-ng-click] {
+[x-ng-click],
+[logout] {
 	cursor: pointer;
 }
 

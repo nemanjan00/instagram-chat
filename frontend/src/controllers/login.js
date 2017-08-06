@@ -13,6 +13,19 @@ module.exports = function(app) {
 		};
 	});
 
+	app.directive('logout', function (user, $state) {
+		return {
+			restrict: "EA",
+			link: function (scope, element, attrs) {
+				element.bind('click', function (event) {
+					user.logout().then(function(){
+						$state.go("login", {}, {reload: true});
+					});
+				});
+			}
+		};
+	});
+
 	app.factory("user", function($rootScope, $interval, $http){
 		var user = {
 			status: undefined,
@@ -60,15 +73,13 @@ module.exports = function(app) {
 				return promise;
 			},
 			logout: function(){
+				localStorage.clear();
+
 				var promise = new Promise(function(resolve, reject){
 					$http.get("/instagram/logout").then(function(data){
 						user.checkStatus();
 						resolve();
 					});
-				});
-
-				promise.then(function(result){
-					user.checkStatus();
 				});
 
 				return promise;
@@ -81,9 +92,15 @@ module.exports = function(app) {
 	})
 
 	app.controller("LoginController", function($scope, user, $state) {
+		$(".splash").hide();
+
 		$scope.login = function(){
 			user.login($scope.username, $scope.password).then(function(result){
 				if(result){
+					if($scope.remember){
+						localStorage.setItem("username", $scope.username);
+						localStorage.setItem("password", $scope.password);
+					}
 					$state.go("app.inbox");
 				}
 				else
