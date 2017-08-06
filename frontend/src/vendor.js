@@ -1,5 +1,6 @@
 require("angular");
 require("angular-ui-router");
+require("ng-infinite-scroll");
 
 window.$ = window.jQuery = require("jquery");
 require("bootstrap");

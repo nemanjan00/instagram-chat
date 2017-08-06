@@ -47,19 +47,21 @@ module.exports = function(app) {
 		}
 	});
 
-	router.get("/threads", function(req, res){
+	function threads(req, res){
 		var session = app.get("sessions")[req.session.id];
+		var cursor = req.params.cursor || null;
 
 		if(session){
 			var inbox = require("../../instagram/inbox.js")(session.session);
-			inbox.getThreads().then((threads) => {
-				var threads = threads.map((thread) => {
+			inbox.getThreads(cursor).then((data) => {
+				var threads = data.threads.map((thread) => {
 					return thread.getParams();
 				});
 
 				res.send({
 					status: "ok",
-					threads: threads
+					threads: threads,
+					cursor: data.cursor
 				});
 			});
 		} else {
@@ -67,7 +69,10 @@ module.exports = function(app) {
 				status: "error"
 			})
 		}
-	});
+	}
+
+	router.get("/threads", threads);
+	router.get("/threads/:cursor", threads);
 
 	router.get("/logout", function(req, res){
 		var sessions = app.get("sessions");

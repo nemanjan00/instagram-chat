@@ -1,7 +1,7 @@
 require("./css/signin.css");
 require("./css/theme.css");
 
-var app = angular.module('top.nemanja.instagram-chat', ['ui.router']);
+var app = angular.module('top.nemanja.instagram-chat', ['ui.router', 'infinite-scroll']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/loader");
@@ -32,6 +32,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			templateUrl: '/templates/app.html',
 		});
 });
+
+angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 1000)
 
 require("./controllers")(app);
 
