@@ -1,4 +1,5 @@
 require("angular");
+require("angular-ui-router");
 
 window.$ = window.jQuery = require("jquery");
 require("bootstrap");
