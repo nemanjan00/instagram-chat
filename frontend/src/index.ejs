@@ -16,11 +16,11 @@
 					<input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="username">
 
 					<label for="inputPassword" class="sr-only">Password</label>
-					<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+					<input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="password">
 
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="remember-me"> Remember me
+							<input type="checkbox" value="remember-me" ng-model="remember"> Remember me
 						</label>
 					</div>
 					<button class="btn btn-lg btn-default btn-block" type="submit" ng-click="login()">Sign in</button>
