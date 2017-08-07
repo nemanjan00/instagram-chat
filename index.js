@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 module.exports = new Promise((resolve, reject) => {
 	// Utility dependencies
 
