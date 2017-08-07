@@ -3,6 +3,7 @@ module.exports = new Promise((resolve, reject) => {
 
 	var logSymbols = require('log-symbols');
 	var getPort = require('./backend/src/getPort');
+	var path = require("path");
 
 	// Express & Utility middleware
 
@@ -16,7 +17,7 @@ module.exports = new Promise((resolve, reject) => {
 		extended: true
 	}));
 
-	app.use(express.static('frontend/public'));
+	app.use(express.static(path.join(__dirname, 'frontend/public')));
 	app.use(session({
 		secret: 'keyboard cat',
 		resave: true
