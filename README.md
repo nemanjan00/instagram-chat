@@ -2,6 +2,8 @@
 
 Instagram chat application.
 
+![instagram-chat-gui](https://github.com/nemanjan00/instagram-chat/blob/master/screenshot/screenshot.jpg?raw=true)
+
 ## **Under development**
 
 ### What works? 
