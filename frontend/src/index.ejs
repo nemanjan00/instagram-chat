@@ -109,7 +109,7 @@
 		<script type="text/ng-template" id="/templates/thread.html">
 			<div class="container">
 				<div class="chat">
-					<div class="scroll-container">
+					<div class="scroll-container" z-infinite-scroll="loadMore" inverse="true">
 						<div class="list-group">
 							<div class="list-group-item" ng-repeat="message in thread | reverse">
 								<div class="media">

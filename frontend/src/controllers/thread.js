@@ -8,10 +8,17 @@ module.exports = function(app) {
 	app.controller("ThreadController", function(user, $http, $scope, $stateParams, $rootScope) {
 		$scope.thread = [];
 
+		var oldLast;
+
 		$scope.$watch('thread', function() {
-			setTimeout(() => {
+			if(oldLast == undefined || oldLast != $scope.thread[0]){
+				oldLast = $scope.thread[0]
+
 				$(".scroll-container").animate({ scrollTop: $(".scroll-container").prop("scrollHeight") }, "slow");
-			}, 500);
+				setTimeout(() => {
+					$(".scroll-container").animate({ scrollTop: $(".scroll-container").prop("scrollHeight") }, "slow");
+				}, 500);
+			}
 		});
 
 		setTimeout(() => {
