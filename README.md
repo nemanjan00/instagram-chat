@@ -12,7 +12,7 @@ Instagram chat application.
 
  * Listing threads with infinite scroll
 
- * Listing messages with infinite scroll (person not found bug & no media)
+ * Listing messages with infinite scroll (person not found bug)
 
 ## How to run
 
