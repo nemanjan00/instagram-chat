@@ -24,8 +24,6 @@ Instagram chat application.
 
  * Send photo
 
-* Send message
-
  * Send link
 
  * Open profile in browser

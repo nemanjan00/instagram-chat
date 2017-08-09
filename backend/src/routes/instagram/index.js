@@ -114,6 +114,24 @@ module.exports = function(app) {
 		}
 	}
 
+	router.post("/messagess/:thread", function(req, res){
+		var session = app.get("sessions")[req.session.id];
+
+		if(session){
+			var inbox = require("../../instagram/inbox.js")(session.session);
+			inbox.sendMessage(req.params.thread, req.body.message).then((data) => {
+				res.send({
+					status: "ok",
+					items: data
+				});
+			});
+		} else {
+			res.send({
+				status: "error"
+			})
+		}
+	});
+
 	router.get("/messagess/:thread", messagess);
 	router.get("/messagess/:thread/:cursor", messagess);
 

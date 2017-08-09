@@ -34,6 +34,16 @@ module.exports = function(app) {
 			return $rootScope.users[id].picture;
 		}
 
+		$scope.sendMessage = function(){
+			if($scope.message != ""){
+				$http.post("/instagram/messagess/"+$stateParams.id, {message: $scope.message}).then(function(data){
+					$scope.thread = data.data.items.concat($scope.thread);
+				});
+
+				$scope.message = "";
+			}
+		}
+
 		$scope.loadMore = function(){
 			if($scope.loaded && !$scope.end){
 				$scope.loaded = false;
@@ -65,7 +75,6 @@ module.exports = function(app) {
 					$scope.thread = data.data.messagess;
 
 					$scope.cursor = data.data.cursor;
-					console.log($scope.thread);
 				})
 			}
 		});

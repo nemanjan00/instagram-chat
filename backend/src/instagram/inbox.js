@@ -34,6 +34,16 @@ module.exports = function(session){
 					});
 				});
 			})
+		},
+
+		sendMessage: function(thread, text){
+			return new Promise((resolve, reject) => {
+				Client.Thread.getById(inbox.session, thread).then(function(thread){
+					thread.broadcastText(text).then(function(data){
+						resolve(data[0].getParams().items);
+					});
+				});
+			})
 		}
 	};
 

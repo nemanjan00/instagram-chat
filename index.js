@@ -19,6 +19,8 @@ module.exports = new Promise((resolve, reject) => {
 		extended: true
 	}));
 
+	app.use(bodyParser.json())
+
 	app.use(express.static(path.join(__dirname, 'frontend/public')));
 	app.use(session({
 		secret: 'keyboard cat',
