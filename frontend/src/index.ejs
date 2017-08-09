@@ -84,7 +84,7 @@
 		<script type="text/ng-template" id="/templates/inbox.html">
 			<div class="container">
 				<div class="list-group" z-infinite-scroll='loadMore' body-scroll="true">
-					<div class="list-group-item" ng-click="goToThread(thread)" ng-repeat="thread in threads">
+					<div class="list-group-item" ng-click="goToThread(thread)" ng-repeat="thread in threads" ng-class="{unread: !isSeen(thread)}">
 						<div class="media">
 							<div class="media-left">
 								<a href="#">

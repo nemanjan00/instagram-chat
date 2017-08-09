@@ -32,6 +32,10 @@
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 }
+.unread, .unread > h4 {
+	font-weight: bold;
+}
+
 .chat {
 	height: 100%;
 

@@ -1,3 +1,7 @@
+.unread, .unread > h4 {
+	font-weight: bold;
+}
+
 .chat {
 	height: 100%;
 

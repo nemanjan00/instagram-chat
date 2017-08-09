@@ -48,6 +48,10 @@ module.exports = function(app) {
 			return thread.threadType == "private" && thread.accounts.length == 1 && thread.accounts[0].fullName != "";
 		}
 
+		$scope.isSeen = function(thread){
+			return thread.items[0].id <= (thread.itemsSeenAt[Object.keys(thread.itemsSeenAt)[0]] || {itemId: 0}).itemId;
+		}
+
 		$scope.fullNameList = function(thread){
 			if(thread.accounts.length > 1){
 				var accounts = thread.accounts.map((account) => {
@@ -76,6 +80,8 @@ module.exports = function(app) {
 			if(user.isAuthenticated()){
 				$http.get("/instagram/threads").then(function(data){
 					$scope.threads = data.data.threads;
+
+					console.log($scope.threads);
 
 					$scope.cursor = data.data.cursor;
 
