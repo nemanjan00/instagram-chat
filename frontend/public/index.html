@@ -99,6 +99,42 @@
 <link rel="preload" href="/app.css" as="script">
 <link rel="preload" href="/vendor.js" as="script">
 <link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
 <link href="/vendor.css" rel="stylesheet"><link href="/app.css" rel="stylesheet"></head>
 	<body>
 		<div class="splash">
@@ -185,6 +221,9 @@
 									<div class="media-body">
 										<h4 class="media-heading">{{getName(message.accountId)}}</h4>
 										{{message.text}}
+										<span ng-show="message.type == 'media'">
+											<img ng-repeat="image in message.media" ng-src="{{image.url}}" style="max-height: 500px;">
+										</span>
 									</div>
 								</div>
 							</div>

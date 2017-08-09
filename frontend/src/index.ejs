@@ -121,6 +121,9 @@
 									<div class="media-body">
 										<h4 class="media-heading">{{getName(message.accountId)}}</h4>
 										{{message.text}}
+										<span ng-show="message.type == 'media'">
+											<img ng-repeat="image in message.media" ng-src="{{image.url}}" style="max-height: 500px;">
+										</span>
 									</div>
 								</div>
 							</div>
