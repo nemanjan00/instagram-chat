@@ -38,7 +38,7 @@ Instagram chat application.
 
 ## How to run
 
-Download from (here)[https://github.com/nemanjan00/instagram-chat/releases]
+Download from [here](https://github.com/nemanjan00/instagram-chat/releases)
 
 ### Or from NPM
 
