@@ -135,6 +135,10 @@
 <link rel="preload" href="/app.css" as="script">
 <link rel="preload" href="/vendor.js" as="script">
 <link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
 <link href="/vendor.css" rel="stylesheet"><link href="/app.css" rel="stylesheet"></head>
 	<body>
 		<div class="splash">
@@ -187,9 +191,7 @@
 					<div class="list-group-item" ng-click="goToThread(thread)" ng-repeat="thread in threads" ng-class="{unread: !isSeen(thread)}">
 						<div class="media">
 							<div class="media-left">
-								<a href="#">
 								<img class="media-object" ng-src="{{thread.accounts[0].picture}}" alt="...">
-								</a>
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading">{{thread.title}} <span ng-show="showFullName(thread)">({{thread.accounts[0].fullName}})</span> {{fullNameList(thread)}}</h4>
