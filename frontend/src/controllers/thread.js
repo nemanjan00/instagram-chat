@@ -63,6 +63,7 @@ module.exports = function(app) {
 					var oldHeight = $(".scroll-container").prop("scrollHeight");
 
 					$scope.thread = $scope.thread.concat(data.data.messagess);
+					console.log($scope.thread);
 
 					$timeout(function(){
 						var newHeight = $(".scroll-container").prop("scrollHeight");
