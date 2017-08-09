@@ -5,7 +5,7 @@ module.exports = function(app) {
 		};
 	});
 
-	app.controller("ThreadController", function(user, $http, $scope, $stateParams, $rootScope) {
+	app.controller("ThreadController", function(user, $http, $scope, $stateParams, $rootScope, $timeout) {
 		$scope.thread = [];
 
 		var oldLast;
@@ -14,10 +14,9 @@ module.exports = function(app) {
 			if(oldLast == undefined || oldLast != $scope.thread[0]){
 				oldLast = $scope.thread[0]
 
-				$(".scroll-container").animate({ scrollTop: $(".scroll-container").prop("scrollHeight") }, "slow");
-				setTimeout(() => {
+				$timeout(function(){
 					$(".scroll-container").animate({ scrollTop: $(".scroll-container").prop("scrollHeight") }, "slow");
-				}, 500);
+				}, 0);
 			}
 		});
 
@@ -40,7 +39,15 @@ module.exports = function(app) {
 				$scope.loaded = false;
 
 				$http.get("/instagram/messagess/"+$stateParams.id+"/"+$scope.cursor).then(function(data){
+					var oldHeight = $(".scroll-container").prop("scrollHeight");
+
 					$scope.thread = $scope.thread.concat(data.data.messagess);
+
+					$timeout(function(){
+						var newHeight = $(".scroll-container").prop("scrollHeight");
+
+						$(".scroll-container").scrollTop(newHeight - oldHeight);
+					}, 0);
 
 					if($scope.cursor == data.data.cursor){
 						$scope.end = true;
