@@ -40,6 +40,8 @@ Instagram chat application.
 
  * Open profile in browser
 
+ * Single user mode
+
 ## How to run
 
 Download from [here](https://github.com/nemanjan00/instagram-chat/releases)
