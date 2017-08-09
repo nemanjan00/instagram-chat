@@ -38,17 +38,21 @@ Instagram chat application.
 
 ## How to run
 
+Download from (here)[https://github.com/nemanjan00/instagram-chat/releases]
+
+### Or from NPM
+
 ``` bash
 sudo yarn add global instagram-chat
 ```
 
-## How to run GUI
+#### How to run GUI
 
 ``` bash
 instagram-chat-gui
 ```
 
-## Or run server
+#### Or run server
 
 ``` bash
 instagram-chat
