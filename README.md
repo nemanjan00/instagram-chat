@@ -30,8 +30,6 @@ Instagram chat application.
 
  * Dynamic person get
 
- * Notifications
-
  * Tray
 
  * Like message button
