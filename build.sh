@@ -1,12 +1,13 @@
 VERSION=1.6.11
 
+mkdir .build
 cd .build
 
 # Cleanup
 rm app.asar
 rm -rf ./builds
 
-#npm install -g yarn asar
+npm install -g yarn asar
 
 cd ../
 
