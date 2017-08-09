@@ -18,6 +18,8 @@ Instagram chat application.
 
 ### TODO
 
+ * Notifications
+
  * Dynamic person get
 
  * Notifications
