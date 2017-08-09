@@ -6,9 +6,13 @@ module.exports = function(app) {
 	});
 
 	app.controller("ThreadController", function(user, $http, $scope, $stateParams, $rootScope) {
-		console.log($stateParams);
-
 		$scope.thread = [];
+
+		$scope.$watch('thread', function() {
+			setTimeout(() => {
+				$(".scroll-container").animate({ scrollTop: $(".scroll-container").prop("scrollHeight") }, "slow");
+			}, 500);
+		});
 
 		setTimeout(() => {
 			$scope.loaded = true;

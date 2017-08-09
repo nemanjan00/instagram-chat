@@ -1,7 +1,8 @@
 .chat {
+	height: 100%;
+
 	border-radius: 4px;
 
-	height: 80vh;
 	width: 100%;
 	background-color: #fff;
 
@@ -36,3 +37,12 @@
 .scroll-container > .list-group > .list-group-item {
 	border-radius: 0px !important;
 }
+
+ui-view, body, html, .container {
+	height: 100%;
+}
+
+body {
+	padding-bottom: 20px;
+}
+
