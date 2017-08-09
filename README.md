@@ -14,6 +14,8 @@ Instagram chat application.
 
  * Listing messages with infinite scroll (person not found bug)
 
+ * Send message
+
 ### TODO
 
  * Dynamic person get

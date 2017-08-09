@@ -5,7 +5,7 @@ module.exports = function(app) {
 		};
 	});
 
-	app.controller("ThreadController", function(user, $http, $scope, $stateParams, $rootScope, $timeout) {
+	app.controller("ThreadController", function(user, $http, $scope, $stateParams, $rootScope, $timeout, $interval) {
 		$scope.thread = [];
 
 		var oldLast;
@@ -78,6 +78,36 @@ module.exports = function(app) {
 				})
 			}
 		});
+
+		function sync(cursor){
+			var request;
+
+			if(cursor == undefined){
+				request = $http.get("/instagram/messagess/"+$stateParams.id);
+			} else {
+				request = $http.get("/instagram/messagess/"+$stateParams.id + "/" + cursor);
+			}
+			request.then(function(data){
+				var found = false;
+				var newMessages = [];
+
+				data.data.messagess.forEach(function(message){
+					if(!found && $scope.thread[0].id != message.id){
+						newMessages.push(message);
+					} else {
+						found = true;
+
+						return;
+					}
+				});
+
+				$scope.thread = newMessages.concat($scope.thread);
+			})
+		}
+
+		$interval(function(){
+			sync();
+		}, 3000)
 	});
 }
 
