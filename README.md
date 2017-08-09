@@ -14,6 +14,20 @@ Instagram chat application.
 
  * Listing messages with infinite scroll (person not found bug)
 
+### TODO
+
+ * Dynamic person get
+
+ * Notifications
+
+ * Like message button
+
+ * Send photo
+
+ * Send link
+
+ * Open profile in browser
+
 ## How to run
 
 ``` bash
