@@ -42,11 +42,13 @@ module.exports = function(app) {
 							user.status = data.data.status;
 							user.user = data.data.user;
 
-							if($rootScope.users == undefined){
-								$rootScope.users = {};
-							}
+							if(user.status == "ok"){
+								if($rootScope.users == undefined){
+									$rootScope.users = {};
+								}
 
-							$rootScope.users[user.id] = user;
+								$rootScope.users[user.user.id] = user.user;
+							}
 
 							$rootScope.$broadcast("userChanged");
 
@@ -69,8 +71,6 @@ module.exports = function(app) {
 			login: function(username, password){
 				var promise = new Promise(function(resolve, reject){
 					$http.post("/instagram/login", $.param({username: username, password: password}), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).then(function(data){
-						console.log(data);
-						console.log(data.data.status == "ok");
 						resolve(data.data.status == "ok");
 						user.checkStatus();
 					});

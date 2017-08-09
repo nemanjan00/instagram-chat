@@ -1,4 +1,10 @@
 module.exports = function(app) {
+	app.filter('reverse', function() {
+		return function(items) {
+			return items.slice().reverse();
+		};
+	});
+
 	app.controller("ThreadController", function(user, $http, $scope, $stateParams, $rootScope) {
 		console.log($stateParams);
 

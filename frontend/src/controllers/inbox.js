@@ -23,7 +23,6 @@ module.exports = function(app) {
 				});
 			});
 
-			console.log($rootScope.users);
 		}
 
 		$scope.loadMore = function(){
@@ -81,7 +80,6 @@ module.exports = function(app) {
 					$scope.cursor = data.data.cursor;
 
 					sync($scope.threads)
-					console.log($scope.threads);
 				})
 			}
 		});

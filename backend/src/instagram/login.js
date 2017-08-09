@@ -8,7 +8,12 @@ var Client = require('instagram-private-api').V1;
 module.exports = function(username, password, id){
 	return new Promise((resolve, reject) => {
 		var device = new Client.Device(username);
-		var storage = new Client.CookieFileStorage(path.join(OS.tmpdir(), id+'.json'));
+		
+		if(process.env.ENV == "development"){
+			var storage = new Client.CookieFileStorage(path.join(OS.tmpdir(), 'dev.json'));
+		} else {
+			var storage = new Client.CookieFileStorage(path.join(OS.tmpdir(), id+'.json'));
+		}
 
 		Client.Session.create(device, storage, username, password).then(function(session) {
 			resolve(session);

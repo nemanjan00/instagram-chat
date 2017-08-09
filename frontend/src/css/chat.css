@@ -1,0 +1,37 @@
+.chat {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+
+	height: 80vh;
+	width: 100%;
+	background-color: #fff;
+}
+
+.chat > .scroll-container {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+
+	height: 100%;
+	overflow-y: scroll;
+	position: relative;
+}
+
+.chat > input {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.scroll-container > .list-group {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+
+	max-height: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-bottom: 0px;
+}
+
+.scroll-container > .list-group > .list-group-item {
+	border-radius: 0px !important;
+}

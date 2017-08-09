@@ -122,7 +122,11 @@ module.exports = function(app) {
 		sessions[req.session.id] = undefined;
 		app.set("sessions", sessions);
 
-		var cookies = path.join(OS.tmpdir(), req.session.id+'.json');
+		if(process.env.ENV == "development"){
+			var cookies = path.join(OS.tmpdir(), 'dev.json');
+		} else {
+			var cookies = path.join(OS.tmpdir(), req.session.id+'.json');
+		}
 
 		if (fs.existsSync(cookies)) {
 			fs.unlinkSync(cookies);

@@ -83,7 +83,7 @@
 
 		<script type="text/ng-template" id="/templates/inbox.html">
 			<div class="container">
-				<div class="list-group" infinite-scroll='loadMore()'>
+				<div class="list-group" z-infinite-scroll='loadMore' body-scroll="true">
 					<div class="list-group-item" ng-click="goToThread(thread)" ng-repeat="thread in threads">
 						<div class="media">
 							<div class="media-left">
@@ -108,20 +108,25 @@
 
 		<script type="text/ng-template" id="/templates/thread.html">
 			<div class="container">
-				<div class="list-group">
-					<div class="list-group-item" ng-repeat="message in thread">
-						<div class="media">
-							<div class="media-left">
-								<a href="#">
-								<img class="media-object" ng-src="{{getPhoto(message.accountId)}}" alt="...">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">{{getName(message.accountId)}}</h4>
-								{{message.text}}
+				<div class="chat">
+					<div class="scroll-container">
+						<div class="list-group">
+							<div class="list-group-item" ng-repeat="message in thread | reverse">
+								<div class="media">
+									<div class="media-left">
+										<a href="#">
+										<img class="media-object" ng-src="{{getPhoto(message.accountId)}}" alt="...">
+										</a>
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading">{{getName(message.accountId)}}</h4>
+										{{message.text}}
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<input type="text" class="form-control" id="usr">
 				</div>
 			</div><!-- /.container -->
 		</script>
