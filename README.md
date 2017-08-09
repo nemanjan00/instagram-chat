@@ -29,6 +29,6 @@ instagram-chat-gui
 ## Or run server
 
 ``` bash
-instagram-gui
+instagram-chat
 ```
 
