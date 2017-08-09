@@ -39,6 +39,26 @@
 <link rel="preload" href="/app.css" as="script">
 <link rel="preload" href="/vendor.js" as="script">
 <link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
+<link rel="preload" href="/app.js" as="script">
+<link rel="preload" href="/app.css" as="script">
+<link rel="preload" href="/vendor.js" as="script">
+<link rel="preload" href="/vendor.css" as="script">
 <link href="/vendor.css" rel="stylesheet"><link href="/app.css" rel="stylesheet"></head>
 	<body>
 		<div class="splash">
@@ -115,18 +135,27 @@
 				<div class="chat">
 					<div class="scroll-container" z-infinite-scroll="loadMore" inverse="true">
 						<div class="list-group">
-							<div class="list-group-item" ng-repeat="message in thread | reverse">
+							<div class="list-group-item" ng-repeat="message in thread | reverse" ng-hide="message.type == 'like'">
 								<div class="media">
 									<div class="media-left">
 										<a href="#">
-										<img class="media-object" ng-src="{{getPhoto(message.accountId)}}" alt="...">
+										<img class="media-object" height="150px" ng-src="{{getPhoto(message.accountId)}}" alt="...">
 										</a>
 									</div>
 									<div class="media-body">
-										<h4 class="media-heading">{{getName(message.accountId)}}</h4>
-										{{message.text}}
+										<h4 class="media-heading" ng-class="{dummy: isDummy(message.accountId)}">{{getName(message.accountId)}}</h4>
+										<p>{{message.text || message.link.text || ""}}</p>
 										<span ng-show="message.type == 'media'">
 											<img ng-repeat="image in message.media" ng-src="{{image.url}}" style="max-height: 500px;">
+										</span>
+										<span ng-show="message.type == 'reel_share'">
+											<i>I tagged you in a story. </i>
+										</span>
+										<span ng-show="message.type == 'mediaShare'">
+											<img ng-src="{{message.mediaShare.images[0].url}}" style="max-height: 500px;">
+										</span>
+										<span ng-show="message.type == 'link'">
+											<img ng-src="{{message.link.link.image.url}}" style="max-height: 500px;">
 										</span>
 									</div>
 								</div>

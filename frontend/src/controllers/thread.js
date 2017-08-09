@@ -26,12 +26,23 @@ module.exports = function(app) {
 
 		$scope.cursor = null;
 
+		var dummyUser = {
+			fullName: "Loading",
+			picture: "https://media.giphy.com/media/AWzcJsAxKnzLa/giphy.gif"
+		}
+
 		$scope.getName = function(id){
-			return $rootScope.users[id].fullName || $rootScope.users[id].username || "unknown";
+			var user = $rootScope.users[id] || dummyUser;
+			return user.fullName || user.username || "unknown";
 		}
 
 		$scope.getPhoto = function(id){
-			return $rootScope.users[id].picture;
+			var user = $rootScope.users[id] || dummyUser;
+			return user.picture;
+		}
+
+		$scope.isDummy = function(id){
+			return $rootScope.users[id] == undefined;
 		}
 
 		$scope.sendMessage = function(){
@@ -74,6 +85,8 @@ module.exports = function(app) {
 				$http.get("/instagram/messagess/"+$stateParams.id).then(function(data){
 					$scope.thread = data.data.messagess;
 
+					console.log($scope.thread);
+					
 					$scope.cursor = data.data.cursor;
 				})
 			}

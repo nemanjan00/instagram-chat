@@ -1794,9 +1794,9 @@ ini@1.x.x, ini@~1.3.0:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
 
-instagram-private-api@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/instagram-private-api/-/instagram-private-api-0.6.0.tgz#b74600f5dcf76622fda0eb8457cb0208a6727f0c"
+"instagram-private-api@https://github.com/nemanjan00/instagram-private-api.git":
+  version "0.6.2"
+  resolved "https://github.com/nemanjan00/instagram-private-api.git#8de3975795be4c6e047bca5212ecbf845463b426"
   dependencies:
     bluebird "^3.0.5"
     crypto-js "^3.1.6"
@@ -1812,7 +1812,7 @@ instagram-private-api@^0.6.0:
     tough-cookie-filestore "0.0.1"
     underscore "^1.8.3"
     underscore.string "^3.2.2"
-    valid-url "1.0.9"
+    valid-url "^1.0.9"
 
 interpret@^1.0.0:
   version "1.0.3"
@@ -3589,11 +3589,7 @@ speedometer@~0.1.2:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/speedometer/-/speedometer-0.1.4.tgz#9876dbd2a169d3115402d48e6ea6329c8816a50d"
 
-sprintf-js@^1.0.3:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.1.tgz#36be78320afe5801f6cea3ee78b6e5aab940ea0c"
-
-sprintf-js@~1.0.2:
+sprintf-js@^1.0.3, sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
@@ -4017,7 +4013,7 @@ uuid@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
-valid-url@1.0.9:
+valid-url@^1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/valid-url/-/valid-url-1.0.9.tgz#1c14479b40f1397a75782f115e4086447433a200"
 
