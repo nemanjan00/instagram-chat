@@ -20,6 +20,8 @@ Instagram chat application.
 
 ### TODO
 
+ * New conversation
+
  * A lot of cleanup
 
  * Seen
