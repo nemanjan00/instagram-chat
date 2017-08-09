@@ -1,6 +1,7 @@
 script:
 - "./build.sh"
 - "mv ./.build ./build"
+- "git add ./build"
 deploy:
   provider: releases
   api_key:
