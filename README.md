@@ -1,5 +1,7 @@
 # instagram-chat
 
+[![Build Status](https://travis-ci.org/nemanjan00/instagram-chat.svg?branch=master)](https://travis-ci.org/nemanjan00/instagram-chat)
+
 Instagram chat application.
 
 ![instagram-chat-gui](https://github.com/nemanjan00/instagram-chat/blob/master/screenshot/screenshot.jpg?raw=true)
