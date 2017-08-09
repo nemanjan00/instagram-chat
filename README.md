@@ -28,6 +28,8 @@ Instagram chat application.
 
  * Notifications
 
+ * Tray
+
  * Like message button
 
  * Send photo
