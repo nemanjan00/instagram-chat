@@ -20,13 +20,13 @@ Instagram chat application.
 
 ### TODO
 
- * New conversation
-
- * A lot of cleanup
+ * Notifications
 
  * Seen
 
- * Notifications
+ * New conversation
+
+ * A lot of cleanup
 
  * Tray
 
@@ -35,8 +35,6 @@ Instagram chat application.
  * Send photo
 
  * Send link
-
- * Open profile in browser
 
  * Single user mode
 

@@ -119,7 +119,7 @@
 										<img class="media-object" height="150px" ng-src="{{getPhoto(message.accountId)}}" alt="...">
 									</div>
 									<div class="media-body">
-										<h4 class="media-heading" ng-class="{dummy: isDummy(message.accountId)}">{{getName(message.accountId)}}</h4>
+										<a href="{{getLink(message.accountId)}}" target="_blank"><h4 class="media-heading" ng-class="{dummy: isDummy(message.accountId)}">{{getName(message.accountId)}}</h4></a>
 										<p>{{message.text || message.link.text || message.actionLog.description || ""}}</p>
 										<span ng-show="message.type == 'media'">
 											<img ng-repeat="image in message.media" ng-src="{{image.url}}" style="max-height: 500px;">

@@ -22,7 +22,8 @@ module.exports = function(app) {
 
 		var dummyUser = {
 			fullName: "Loading",
-			picture: "https://media.giphy.com/media/AWzcJsAxKnzLa/giphy.gif"
+			picture: "https://media.giphy.com/media/AWzcJsAxKnzLa/giphy.gif",
+			username: "sdfsdfsdf"
 		}
 
 		var loading = {};
@@ -49,6 +50,11 @@ module.exports = function(app) {
 		}, 500);
 
 		$scope.cursor = null;
+
+		$scope.getLink = function(id){
+			var user = $scope.getUser(id);
+			return "https://www.instagram.com/"+user.username;
+		}
 
 		$scope.getName = function(id){
 			var user = $scope.getUser(id);
