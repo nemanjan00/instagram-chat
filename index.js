@@ -22,6 +22,7 @@ module.exports = new Promise((resolve, reject) => {
 	app.use(bodyParser.json())
 
 	app.use(express.static(path.join(__dirname, 'frontend/public')));
+
 	app.use(session({
 		secret: 'keyboard cat',
 		resave: true

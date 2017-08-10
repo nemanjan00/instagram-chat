@@ -36,7 +36,6 @@ module.exports = function(app) {
 				if(loading[id] == undefined){
 					loading[id] = true;
 					$http.get("/instagram/user/"+id).then(function(data){
-						console.log(data.data);
 						$rootScope.users[data.data.user.id] = data.data.user;
 					});
 				};
@@ -88,7 +87,6 @@ module.exports = function(app) {
 					var oldHeight = $(".scroll-container").prop("scrollHeight");
 
 					$scope.thread = $scope.thread.concat(data.data.messagess);
-					console.log($scope.thread);
 
 					$timeout(function(){
 						var newHeight = $(".scroll-container").prop("scrollHeight");
@@ -111,8 +109,6 @@ module.exports = function(app) {
 				$http.get("/instagram/messagess/"+$stateParams.id).then(function(data){
 					$scope.thread = data.data.messagess;
 
-					console.log($scope.thread);
-					
 					$scope.cursor = data.data.cursor;
 				})
 			}

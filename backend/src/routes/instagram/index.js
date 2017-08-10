@@ -64,6 +64,8 @@ module.exports = function(app) {
 	});
 
 	function threads(req, res){
+		console.log(app.get("sessions"));
+		console.log(req.session.id);
 		var session = app.get("sessions")[req.session.id];
 		var cursor = req.params.cursor || null;
 
