@@ -83,14 +83,16 @@ module.exports = function(app) {
 			}
 		}
 
-		var running = false;
+		if($rootScope.running == undefined){
+			$rootScope.running = false;
+		}
 
 		user.checkStatus().then(function() {
 			if(user.isAuthenticated()){
-				if(!running){
+				if(!$rootScope.running){
 					$interval(function(){
 						$http.get("/instagram/threads").then(function(data){
-							if($scope.threads[0].id != data.data.threads[0].id){
+							if($scope.threads[0].items[0].id != data.data.threads[0].items[0].id){
 								$rootScope.threads = $scope.threads;
 								$scope.threads = data.data.threads;
 								$scope.cursor = data.data.cursor;
@@ -101,7 +103,7 @@ module.exports = function(app) {
 						});
 					}, 3000);
 
-					running = true;
+					$rootScope.running = true;
 				}
 
 				$http.get("/instagram/threads").then(function(data){
