@@ -18,6 +18,8 @@ Instagram chat application.
 
  * Send message
 
+ * Gimmicky sound notifications
+
 ### TODO
 
  * Notifications
