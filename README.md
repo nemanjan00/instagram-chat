@@ -60,3 +60,7 @@ instagram-chat-gui
 instagram-chat
 ```
 
+## Authors
+
+[Nemanja Nedeljkovic](https://github.com/nemanjan00)
+
