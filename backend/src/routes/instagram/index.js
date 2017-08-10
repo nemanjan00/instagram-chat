@@ -132,6 +132,24 @@ module.exports = function(app) {
 		}
 	});
 
+	router.get("/user/:id", function(req, res){
+		var session = app.get("sessions")[req.session.id];
+
+		if(session){
+			var user = require("../../instagram/user.js")(session.session);
+			user.getById(req.params.id).then((data) => {
+				res.send({
+					status: "ok",
+					user: data
+				});
+			});
+		} else {
+			res.send({
+				status: "error"
+			})
+		}
+	});
+
 	router.get("/messagess/:thread", messagess);
 	router.get("/messagess/:thread/:cursor", messagess);
 

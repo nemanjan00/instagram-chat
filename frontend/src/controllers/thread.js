@@ -20,24 +20,43 @@ module.exports = function(app) {
 			}
 		});
 
+		var dummyUser = {
+			fullName: "Loading",
+			picture: "https://media.giphy.com/media/AWzcJsAxKnzLa/giphy.gif"
+		}
+
+		var loading = {};
+
+		$scope.getUser = function(id){
+			if($rootScope.users[id] != undefined){
+				return $rootScope.users[id];
+			} else {
+
+				if(loading[id] == undefined){
+					loading[id] = true;
+					$http.get("/instagram/user/"+id).then(function(data){
+						console.log(data.data);
+						$rootScope.users[data.data.user.id] = data.data.user;
+					});
+				};
+
+				return dummyUser;
+			}
+		}
+
 		setTimeout(() => {
 			$scope.loaded = true;
 		}, 500);
 
 		$scope.cursor = null;
 
-		var dummyUser = {
-			fullName: "Loading",
-			picture: "https://media.giphy.com/media/AWzcJsAxKnzLa/giphy.gif"
-		}
-
 		$scope.getName = function(id){
-			var user = $rootScope.users[id] || dummyUser;
+			var user = $scope.getUser(id);
 			return user.fullName || user.username || "unknown";
 		}
 
 		$scope.getPhoto = function(id){
-			var user = $rootScope.users[id] || dummyUser;
+			var user = $scope.getUser(id);
 			return user.picture;
 		}
 
