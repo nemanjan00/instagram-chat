@@ -28,6 +28,12 @@ module.exports = function(app) {
 
 		}
 
+		$scope.playNotification = function(){
+			var audioElement = document.createElement('audio');
+			audioElement.setAttribute('src', "/notification.mp3");
+			audioElement.play();
+		}
+
 		$scope.loadMore = function(){
 			if($scope.loaded && !$scope.end){
 				$scope.loaded = false;
@@ -82,6 +88,20 @@ module.exports = function(app) {
 
 		user.checkStatus().then(function() {
 			if(user.isAuthenticated()){
+				$interval(function(){
+					$http.get("/instagram/threads").then(function(data){
+						$rootScope.threads = $scope.threads;
+
+						if($scope.threads[0].id != data.data.threads[0].id){
+							$scope.threads = data.data.threads;
+							$scope.cursor = data.data.cursor;
+
+							sync($scope.threads)
+							$scope.playNotification();
+						}
+					});
+				}, 3000);
+
 				$http.get("/instagram/threads").then(function(data){
 					$scope.threads = data.data.threads;
 					$rootScope.threads = $scope.threads;
