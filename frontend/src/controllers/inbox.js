@@ -83,20 +83,26 @@ module.exports = function(app) {
 			}
 		}
 
+		var running = false;
+
 		user.checkStatus().then(function() {
 			if(user.isAuthenticated()){
-				$interval(function(){
-					$http.get("/instagram/threads").then(function(data){
-						if($scope.threads[0].id != data.data.threads[0].id){
-							$rootScope.threads = $scope.threads;
-							$scope.threads = data.data.threads;
-							$scope.cursor = data.data.cursor;
+				if(!running){
+					$interval(function(){
+						$http.get("/instagram/threads").then(function(data){
+							if($scope.threads[0].id != data.data.threads[0].id){
+								$rootScope.threads = $scope.threads;
+								$scope.threads = data.data.threads;
+								$scope.cursor = data.data.cursor;
 
-							sync($scope.threads)
-							$scope.playNotification();
-						}
-					});
-				}, 3000);
+								sync($scope.threads)
+								$scope.playNotification();
+							}
+						});
+					}, 3000);
+
+					running = true;
+				}
 
 				$http.get("/instagram/threads").then(function(data){
 					$scope.threads = data.data.threads;
