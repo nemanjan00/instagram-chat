@@ -1,4 +1,10 @@
 module.exports = function(app) {
+	$scope.$on("$destroy",function(){
+		if (angular.isDefined($scope.Timer)) {
+			$interval.cancel($scope.Timer);
+		}
+	});
+
 	app.filter('reverse', function() {
 		return function(items) {
 			return items.slice().reverse();
@@ -140,7 +146,7 @@ module.exports = function(app) {
 			})
 		}
 
-		$interval(function(){
+		$scope.Timer = $interval(function(){
 			sync();
 		}, 3000)
 	});
