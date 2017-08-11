@@ -1,10 +1,4 @@
 module.exports = function(app) {
-	$scope.$on("$destroy",function(){
-		if (angular.isDefined($scope.Timer)) {
-			$interval.cancel($scope.Timer);
-		}
-	});
-
 	app.filter('reverse', function() {
 		return function(items) {
 			return items.slice().reverse();
@@ -12,6 +6,12 @@ module.exports = function(app) {
 	});
 
 	app.controller("ThreadController", function(user, $http, $scope, $stateParams, $rootScope, $timeout, $interval) {
+		$scope.$on("$destroy",function(){
+			if (angular.isDefined($scope.Timer)) {
+				$interval.cancel($scope.Timer);
+			}
+		});
+
 		$scope.thread = [];
 
 		var oldLast;
