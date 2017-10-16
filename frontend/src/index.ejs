@@ -87,7 +87,7 @@
 					<div class="list-group-item" ng-click="goToThread(thread)" ng-repeat="thread in threads" ng-class="{unread: !isSeen(thread)}">
 						<div class="media">
 							<div class="media-left">
-								<img class="media-object" ng-src="{{thread.accounts[0].picture}}" alt="...">
+								<img class="media-object" ng-src="{{thread.accounts[0].picture}}" height="50px" alt="...">
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading">{{thread.title}} <span ng-show="showFullName(thread)">({{thread.accounts[0].fullName}})</span> {{fullNameList(thread)}}</h4>
@@ -112,7 +112,7 @@
 							<div class="list-group-item" ng-repeat="message in thread | reverse" ng-hide="message.type == 'like'">
 								<div class="media">
 									<div class="media-left">
-										<img class="media-object" height="150px" ng-src="{{getPhoto(message.accountId)}}" alt="...">
+										<img class="media-object" height="50px" ng-src="{{getPhoto(message.accountId)}}" alt="...">
 									</div>
 									<div class="media-body">
 										<a href="{{getLink(message.accountId)}}" target="_blank"><h4 class="media-heading" ng-class="{dummy: isDummy(message.accountId)}">{{getName(message.accountId)}}</h4></a>
