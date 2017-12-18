@@ -18,17 +18,19 @@
   },
   "dependencies": {
     "body-parser": "^1.17.2",
-    "electron": "^1.6.11",
     "electroner": "^4.0.4",
     "express": "^4.15.3",
     "express-session": "^1.15.5",
     "forever": "^0.15.3",
     "instagram-private-api": "https://github.com/nemanjan00/instagram-private-api.git",
     "log-symbols": "^2.0.0",
-    "portastic": "^1.0.1",
-    "zinfinitescroll": "^1.1.6"
+    "portastic": "^1.0.1"
+  },
+  "optionalDependencies": {
+    "electron": "^1.6.11"
   },
   "devDependencies": {
+    "zinfinitescroll": "^1.1.6",
     "angular": "^1.6.5",
     "angular-ui-router": "^1.0.3",
     "bootstrap": "^3.3.7",
