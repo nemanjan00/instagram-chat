@@ -76,7 +76,7 @@
 	border-radius: 0px !important;
 }
 
-ui-view, body, html, .container {
+ui-view, body, html, .container-fluid {
 	height: 100%;
 }
 
@@ -99,7 +99,7 @@ body {
 	color: #fff !important;
 }
 
-.container {
+.container-fluid {
 	color: #8a3ab9;
 }
 

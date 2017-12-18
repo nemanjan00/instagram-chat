@@ -69,7 +69,7 @@
 
 		<script type="text/ng-template" id="/templates/app.html">
 			<nav class="navbar navbar-inverse navbar-fixed-top">
-				<div class="container">
+				<div class="container-fluid">
 					<div class="navbar-header">
 						<a class="navbar-brand" ng-click="goToInbox();"><i class="fa fa-instagram"></i> Instagram Chat</a>
 
@@ -84,7 +84,7 @@
 		</script>
 
 		<script type="text/ng-template" id="/templates/inbox.html">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="list-group" z-infinite-scroll='loadMore' body-scroll="true">
 					<div class="list-group-item" ng-click="goToThread(thread)" ng-repeat="thread in threads" ng-class="{unread: !isSeen(thread)}">
 						<div class="media">
@@ -107,7 +107,7 @@
 		</script>
 
 		<script type="text/ng-template" id="/templates/thread.html">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="chat">
 					<div class="scroll-container" z-infinite-scroll="loadMore" inverse="true">
 						<div class="list-group">

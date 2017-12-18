@@ -42,7 +42,7 @@
 	border-radius: 0px !important;
 }
 
-ui-view, body, html, .container {
+ui-view, body, html, .container-fluid {
 	height: 100%;
 }
 
