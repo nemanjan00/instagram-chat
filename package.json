@@ -22,7 +22,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.5",
     "forever": "^0.15.3",
-    "instagram-private-api": "https://github.com/nemanjan00/instagram-private-api.git",
+    "instagram-private-api": "https://github.com/huttarichard/instagram-private-api.git",
     "log-symbols": "^2.0.0",
     "portastic": "^1.0.1"
   },
