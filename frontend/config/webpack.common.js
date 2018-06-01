@@ -2,7 +2,7 @@ var webpack = require("webpack");
 var PreloadWebpackPlugin = require('preload-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+//var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -21,7 +21,12 @@ module.exports = {
 			{
 				test: /\.css$/,
 				exclude: helpers.root('src', 'app'),
-				loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader?sourceMap'] })
+				//loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader?sourceMap'] })
+				use: [
+					"style-loader", // creates style nodes from JS strings
+					"css-loader", // translates CSS into CommonJS
+					"sass-loader" // compiles Sass to CSS
+				]
 			},
 			{
 				test: /\.css$/,
@@ -39,17 +44,17 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new webpack.optimize.CommonsChunkPlugin({
-			name: ['app', 'vendor']
-		}),
+		//new webpack.optimize.CommonsChunkPlugin({
+			//name: ['app', 'vendor']
+		//}),
 		new HtmlWebpackPlugin({
 			template: 'frontend/src/index.ejs'
 		}),
-		new PreloadWebpackPlugin({
-			rel: 'preload',
-			as: 'script',
-			include: 'all'
-		}),
+		//new PreloadWebpackPlugin({
+			//rel: 'preload',
+			//as: 'script',
+			//include: 'all'
+		//}),
 		new BundleAnalyzerPlugin()
 	]
 };

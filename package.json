@@ -22,9 +22,11 @@
     "express": "^4.15.3",
     "express-session": "^1.15.5",
     "forever": "^0.15.3",
-    "instagram-private-api": "https://github.com/huttarichard/instagram-private-api.git",
+    "html-webpack-plugin": "^3.2.0",
+    "instagram-private-api": "https://github.com/nemanjan00/instagram-private-api.git#patch-1",
     "log-symbols": "^2.0.0",
-    "portastic": "^1.0.1"
+    "portastic": "^1.0.1",
+    "webpack": "^4.10.2"
   },
   "optionalDependencies": {
     "electron": "^1.6.11"
@@ -34,15 +36,14 @@
     "angular-ui-router": "^1.0.3",
     "bootstrap": "^3.3.7",
     "css-loader": "^0.28.4",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^0.11.2",
+    "file-loader": "^1.1.11",
     "font-awesome": "^4.7.0",
-    "html-webpack-plugin": "^2.30.1",
     "jquery": "^3.2.1",
+    "node-sass": "^4.9.0",
     "preload-webpack-plugin": "^1.2.3",
     "require-reload": "^0.2.2",
+    "sass-loader": "^7.0.1",
     "style-loader": "^0.18.2",
-    "webpack": "^3.4.1",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-livereload-plugin": "^0.11.0",
     "webpack-merge": "^4.1.0",
