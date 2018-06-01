@@ -2349,7 +2349,7 @@ ini@1.x.x, ini@~1.3.0:
 
 "instagram-private-api@https://github.com/nemanjan00/instagram-private-api.git#patch-1":
   version "0.6.7"
-  resolved "https://github.com/nemanjan00/instagram-private-api.git#f42bd2ccea82bee9c5acdc1555c1f154c57ffa9d"
+  resolved "https://github.com/nemanjan00/instagram-private-api.git#69b8f00d81cb7be3c3d393db16b0409c93e8fc9e"
   dependencies:
     bluebird "^3.0.5"
     camelcase-keys "^4.1.0"

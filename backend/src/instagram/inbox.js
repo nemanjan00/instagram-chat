@@ -12,8 +12,6 @@ module.exports = function(session){
 				}
 
 				feed.get().then((threads) => {
-					console.log(threads);
-
 					resolve({
 						threads: threads,
 						cursor: feed.getCursor()
