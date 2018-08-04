@@ -31,11 +31,12 @@ module.exports = new Promise((resolve, reject) => {
 	// Express initialization (app specific stuff)
 
 	getPort().then((port) => {
-		app.set("port", process.env.port || port);
+		app.set("port", process.env.PORT || port);
+		app.set("host", process.env.HOST || '0.0.0.0');
 
 		app.use('/', require('./backend/src/routes')(app));
 
-		app.listen(app.get("port"), function () {
+		app.listen(app.get("port"), app.get("host"), function () {
 			resolve();
 			console.log(logSymbols.success, 'instagram chat is listening on port '+app.get('port')+'.');
 		});
