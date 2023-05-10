@@ -17,9 +17,9 @@
     "instagram-chat-gui": "electroner.js"
   },
   "dependencies": {
-    "body-parser": "^1.17.2",
+    "body-parser": "^1.19.2",
     "electroner": "^4.0.4",
-    "express": "^4.15.3",
+    "express": "^4.17.3",
     "express-session": "^1.15.5",
     "forever": "^0.15.3",
     "html-webpack-plugin": "^3.2.0",
