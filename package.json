@@ -10,7 +10,9 @@
     "start": "./node_modules/.bin/forever ./index.js",
     "serve": "webpack-dev-server --inline --progress --port 8080 --config frontend/config/webpack.dev.js --content-base public",
     "test": "karma start",
-    "build": "rm -rf public ; mkdir public ; cp -r ./public-template/* ./public/ ; webpack --config frontend/config/webpack.prod.js --progress --profile --bail"
+    "build": "rm -rf public ; mkdir public ; cp -r ./public-template/* ./public/ ; webpack --config frontend/config/webpack.prod.js --progress --profile --bail",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "bin": {
     "instagram-chat": "index.js",
@@ -26,7 +28,8 @@
     "instagram-private-api": "https://github.com/nemanjan00/instagram-private-api.git#patch-1",
     "log-symbols": "^2.0.0",
     "portastic": "^1.0.1",
-    "webpack": "^4.10.2"
+    "webpack": "^4.10.2",
+    "@snyk/protect": "latest"
   },
   "optionalDependencies": {
     "electron": "^1.6.11"
@@ -48,5 +51,6 @@
     "webpack-livereload-plugin": "^0.11.0",
     "webpack-merge": "^4.1.0",
     "zinfinitescroll": "^1.1.6"
-  }
+  },
+  "snyk": true
 }
