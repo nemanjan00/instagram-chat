@@ -1,0 +1,10 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:extend:20180424':
+    - electron > electron-download > nugget > request > extend:
+        patched: '2023-09-01T15:26:37.718Z'
+        id: 'npm:extend:20180424'
+        path: electron > electron-download > nugget > request > extend
