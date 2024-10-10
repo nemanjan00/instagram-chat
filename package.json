@@ -19,8 +19,8 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "electroner": "^4.0.4",
-    "express": "^4.15.3",
-    "express-session": "^1.15.5",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
     "forever": "^0.15.3",
     "html-webpack-plugin": "^3.2.0",
     "instagram-private-api": "https://github.com/nemanjan00/instagram-private-api.git#patch-1",
